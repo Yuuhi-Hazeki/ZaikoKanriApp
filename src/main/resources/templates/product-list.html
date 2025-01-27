@@ -2,16 +2,17 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
+<link th:href="@{product-list.css}" rel="stylesheet">
 <title>Product List</title>
 </head>
 <body>
 	<h1>在庫管理</h1>
-	<table border="1">
+	<table class="list_table_layout">
 		<tr>
-			<th>ID</th>
-			<th>品名</th>
-			<th>数量</th>
-			<th>金額</th>
+			<th class="id">ID</th>
+			<th class="name">品名</th>
+			<th class="num">数量</th>
+			<th class="price">金額</th>
 		</tr>
 		<tr th:each="product : ${products}">
 		<td th:text="${product.id}"></td>

@@ -1,0 +1,9 @@
+@charset "UTF-8";
+
+.list_table_layout{
+	width: 500px;
+}
+
+.th,td{
+	border: 1px solid #3c3c4e;
+}
