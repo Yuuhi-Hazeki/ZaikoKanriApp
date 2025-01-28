@@ -34,12 +34,12 @@ public class ProductController {
 	@PostMapping
 	public String saveProduct(@ModelAttribute Product product) {
 		productService.saveProduct(product);
-		return "redirect:/product";
+		return "redirect:/";
 	}
 	
 	@GetMapping("/delete/{id}")
 	public String deleteProduct(@PathVariable Integer id) {
 		productService.deleteProduct(id);
-		return "redirect:/product";
+		return "redirect:/";
 	}
 }

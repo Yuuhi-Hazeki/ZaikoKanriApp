@@ -1,12 +1,19 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+
 <head>
-<meta charset="UTF-8">
-<link th:href="@{product-list.css}" rel="stylesheet">
-<title>Product List</title>
+	<meta charset="UTF-8">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+		crossorigin="anonymous"></script>
+	<link th:href="@{product-list.css}" rel="stylesheet">
+	<title>Product List</title>
 </head>
+
 <body>
-	<h1>在庫管理</h1>
+	<h1 class="bg-secondary text-white">在庫管理</h1>
 	<table class="list_table_layout">
 		<tr>
 			<th class="id">ID</th>
@@ -15,15 +22,18 @@
 			<th class="price">金額</th>
 		</tr>
 		<tr th:each="product : ${products}">
-		<td th:text="${product.id}"></td>
-		<td th:text="${product.name}"></td>
-		<td th:text="${product.quantity}"></td>
-		<td th:text="${product.price}"></td>
-		<td>
-			<a th:href="@{/products/delete/{id}(id=${product.id})}">削除</a>
-		</td>
+			<td th:text="${product.id}"></td>
+			<td th:text="${product.name}"></td>
+			<td th:text="${product.quantity}"></td>
+			<td th:text="${product.price}"></td>
+			<td class="deletebtn">
+				<a th:href="@{/products/delete/{id}(id=${product.id})}">削除</a>
+			</td>
 		</tr>
 	</table>
-	<a href="/products/add">追加</a>
+	<p>
+		<input type="button" class="btn btn-outline-primary" onclick="location.hraf='@{/add}'" value="在庫追加">
+	</p>
 </body>
+
 </html>
