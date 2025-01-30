@@ -15,6 +15,7 @@ import lombok.NoArgsConstructor;
 @Data // LombokによるGetter、Setter、toString、equals、hashCodeの自動生成
 @NoArgsConstructor // 引数なしコンストラクタ
 @AllArgsConstructor // 全フィールドを含むコンストラクタ
+
 public class Product {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -25,4 +26,5 @@ public class Product {
 	private int quantity;
 	@Column(nullable = false)
 	private int price;
+	
 }

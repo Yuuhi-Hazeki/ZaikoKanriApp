@@ -32,7 +32,7 @@
 		</tr>
 	</table>
 	<p>
-		<input type="button" class="btn btn-outline-primary" onclick="location.hraf='@{/add}'" value="在庫追加">
+		<button th:onclick="|location.href='@{/add}'|" class="btn btn-outline-primary">在庫追加</button>
 	</p>
 </body>
 

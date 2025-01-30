@@ -31,7 +31,7 @@ public class ProductController {
 		return "add-product";
 	}
 	
-	@PostMapping
+	@PostMapping("/save")
 	public String saveProduct(@ModelAttribute Product product) {
 		productService.saveProduct(product);
 		return "redirect:/";
