@@ -27,7 +27,9 @@
 			<td th:text="${product.quantity}"></td>
 			<td th:text="${product.price}"></td>
 			<td class="deletebtn">
-				<a th:href="@{/products/delete/{id}(id=${product.id})}">削除</a>
+				<form th:action="@{/delete/{id}(id=${product.id})}" method="post">
+					<button type="submit">削除</button>
+				</form>
 			</td>
 		</tr>
 	</table>
