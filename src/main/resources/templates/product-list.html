@@ -20,15 +20,17 @@
 			<th class="name">品名</th>
 			<th class="num">数量</th>
 			<th class="price">金額</th>
+			<th class="createdAt">作成日時</th>
 		</tr>
 		<tr th:each="product : ${products}">
 			<td th:text="${product.id}"></td>
 			<td th:text="${product.name}"></td>
 			<td th:text="${product.quantity}"></td>
 			<td th:text="${product.price}"></td>
+			 <td th:text="${#temporals.format(product.createdAt, 'yyyy-MM-dd HH:mm')}"></td>
 			<td class="deletebtn">
 				<form th:action="@{/delete/{id}(id=${product.id})}" method="post">
-					<button type="submit">削除</button>
+					<button type="submit" class="btn btn-outline-danger">削除</button>
 				</form>
 			</td>
 		</tr>
