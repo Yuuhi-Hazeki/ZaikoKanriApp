@@ -1,9 +1,15 @@
 @charset "UTF-8";
 
 .list_table_layout{
-	width: 500px;
+	width: 450px;
+	margin: 2px 5px ;
 }
 
 .th,td{
 	border: 1px solid rgb(128, 128, 128);
+	
+}
+
+button {
+	margin: 1px 5px;
 }
