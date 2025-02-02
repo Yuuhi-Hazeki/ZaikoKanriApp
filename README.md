@@ -11,11 +11,11 @@
 </ul>
 
 <h3>一覧画面</h3>
-<img src="https://github.com/Yuuhi-Hazeki/ZaikoKanriApp/issues/1#issue-2825781327">
+<img src="https://github.com/Yuuhi-Hazeki/ZaikoKanriApp/blob/c3a494a6df86d925713bdc5a9ba4061b2291de5e/Product%20List%20.png">
 <h3>登録画面</h3>
-<img src="https://github.com/Yuuhi-Hazeki/ZaikoKanriApp/issues/3#issue-2825783180">
+<img src="https://github.com/Yuuhi-Hazeki/ZaikoKanriApp/blob/c3a494a6df86d925713bdc5a9ba4061b2291de5e/Product-Add.gif">
 <h3>削除機能警告ダイアログ付き</h3>
-<img src="https://github.com/Yuuhi-Hazeki/ZaikoKanriApp/issues/2#issue-2825782896">
+<img src="https://github.com/Yuuhi-Hazeki/ZaikoKanriApp/blob/c3a494a6df86d925713bdc5a9ba4061b2291de5e/Product-Delete.gif">
 <h3>使用環境/技術</h3>
 <ui>
   <li>ローカル環境</li>
