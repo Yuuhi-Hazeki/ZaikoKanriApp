@@ -1,7 +1,5 @@
 package com.example.demo.controller;
 
-import java.util.Optional;
-
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -31,17 +29,6 @@ public class ProductController {
 	public String showAddForm(Model model) {
 		model.addAttribute("product", new Product());
 		return "add-product";
-	}
-	
-	@PostMapping("/edit/{id}")
-	public String showEditForm(@PathVariable Integer id, Model model) {
-		Optional<Product> product = ProductService.findById(id);
-		if(product.isPresent()) {
-		model.addAttribute("product",product.get());
-		return "edit-product";
-		}else{
-			return "redirect:/";
-		}
 	}
 	
 	@PostMapping("/save")
