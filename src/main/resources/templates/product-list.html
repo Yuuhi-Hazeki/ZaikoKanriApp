@@ -30,6 +30,11 @@
 			<td th:text="${product.price}"></td>
 			<td th:text="${product.quantity * product.price}"></td>
 			 <td th:text="${#temporals.format(product.createdAt, 'yyyy-MM-dd HH:mm')}"></td>
+			 <td>
+				 <form action="@{/edit/{id}(id=${product.id})}" method="post">
+					 <button type="submit" class="btn btn-primary">編集</button>
+				 </form>
+			 </td>
 			<td class="deletebtn">
 				<form th:action="@{/delete/{id}(id=${product.id})}" method="post">
 					<button type="submit" class="btn btn-outline-danger" onclick="return confirm('削除しますか？')">削除</button>
