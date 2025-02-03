@@ -26,4 +26,8 @@ public class ProductService {
 	public void deleteProduct(Integer id) {
 		productRepository.deleteById(id);
 	}
+	
+	public void editProduct(Integer id) {
+		productRepository.editById(id);
+	}
 }
