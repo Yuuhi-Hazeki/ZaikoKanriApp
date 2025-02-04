@@ -42,7 +42,7 @@ public class ProductController {
 	@GetMapping("/edit/{id}")
 	public String showEditForm(@PathVariable Integer id, Model model) {
 	    Optional<Product> product = productRepository.findById(id);
-	    if (product.isPresent()) {
+	    if (product != null) {
 	        model.addAttribute("product", product.get());
 	        return "edit-product";
 	    } else {
@@ -60,5 +60,18 @@ public class ProductController {
 	public String deleteProduct(@PathVariable Integer id) {
 		productService.deleteProduct(id);
 		return "redirect:/";
+	}
+	
+	@PostMapping("/update/{id}")
+	public String pudateProduct(@PathVariable Integer id, @ModelAttribute Product product) {
+		Optional<Product> existingProduct = productRepository.findById(id);
+		if(existingProduct.isPresent()) {
+		Product updatedProduct = existingProduct.get();
+		   updatedProduct.setName(product.getName());
+	        updatedProduct.setQuantity(product.getQuantity());
+	        updatedProduct.setPrice(product.getPrice());
+	        productRepository.save(updatedProduct);
+	    }
+	    return "redirect:/";
 	}
 }

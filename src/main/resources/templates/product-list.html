@@ -31,7 +31,7 @@
 			<td th:text="${product.quantity * product.price}"></td>
 			 <td th:text="${#temporals.format(product.createdAt, 'yyyy-MM-dd HH:mm')}"></td>
 			 <td>
-				 <form action="@{/edit/{id}(id=${product.id})}" method="post">
+				 <form th:action="@{/edit/{id}(id=${product.id})}" method="get">
 					 <button type="submit" class="btn btn-primary">編集</button>
 				 </form>
 			 </td>
