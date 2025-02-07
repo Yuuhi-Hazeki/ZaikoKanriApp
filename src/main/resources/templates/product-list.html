@@ -15,6 +15,14 @@
 <body>
 	<h1 class="bg-secondary text-white">在庫管理</h1>
 	<table class="list_table_layout">
+
+		<form th:action="@{/products}" method="get" class="mb-3">
+			<div class-="input-group">
+				<input type="text" name="keyword" class="form-control" th:value="${keyword}" placeholder="商品名で検索">
+				<bottun type="submit" class="btn btn-primary">検索</bottun>
+			</div>
+		</form>
+
 		<tr>
 			<th class="id">ID</th>
 			<th class="name">品名</th>
@@ -29,12 +37,12 @@
 			<td th:text="${product.quantity}"></td>
 			<td th:text="${product.price}"></td>
 			<td th:text="${product.quantity * product.price}"></td>
-			 <td th:text="${#temporals.format(product.createdAt, 'yyyy-MM-dd HH:mm')}"></td>
-			 <td>
-				 <form th:action="@{/edit/{id}(id=${product.id})}" method="get">
-					 <button type="submit" class="btn btn-primary">編集</button>
-				 </form>
-			 </td>
+			<td th:text="${#temporals.format(product.createdAt, 'yyyy-MM-dd HH:mm')}"></td>
+			<td>
+				<form th:action="@{/edit/{id}(id=${product.id})}" method="get">
+					<button type="submit" class="btn btn-primary">編集</button>
+				</form>
+			</td>
 			<td class="deletebtn">
 				<form th:action="@{/delete/{id}(id=${product.id})}" method="post">
 					<button type="submit" class="btn btn-outline-danger" onclick="return confirm('削除しますか？')">削除</button>
