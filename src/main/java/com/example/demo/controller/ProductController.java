@@ -2,6 +2,7 @@ package com.example.demo.controller;
 
 
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.example.demo.logic.ProductService;
 import com.example.demo.model.Product;
@@ -73,5 +75,24 @@ public class ProductController {
 	        productRepository.save(updatedProduct);
 	    }
 	    return "redirect:/";
+	}
+	
+	@GetMapping("/products")
+	public String listProducts(@RequestParam(name="keyword", required = false)String keyword, Model model) {
+		List<Product> products;
+		
+		if(keyword != null && !keyword.isEmpty()) {
+		
+			//検索処理
+			products = productRepository.findByNameContainingIgnoreCase(keyword);
+		} else {
+			//全件取得
+			products = productRepository.findAll();
+		}
+		
+		model.addAttribute("products", products);
+		model.addAttribute("keyword", keyword);
+		return "product-list";
+		
 	}
 }
