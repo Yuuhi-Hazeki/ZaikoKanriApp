@@ -77,22 +77,29 @@ public class ProductController {
 	    return "redirect:/";
 	}
 	
-	@GetMapping("/products")
-	public String listProducts(@RequestParam(name="keyword", required = false)String keyword, Model model) {
-		List<Product> products;
+	@GetMapping("/search")
+	public String searchProducts(@RequestParam(required = false) String name,
+	        @RequestParam(required = false) Double minPrice,
+	        @RequestParam(required = false) Double maxPrice,
+	        @RequestParam(required = false) Integer minQuantity, Model model) {
+		  // 検索条件によってリストを切り替える
 		
-		if(keyword != null && !keyword.isEmpty()) {
+		 List<Product> products;
 		
-			//検索処理
-			products = productRepository.findByNameContainingIgnoreCase(keyword);
-		} else {
-			//全件取得
-			products = productRepository.findAll();
-		}
-		
-		model.addAttribute("products", products);
-		model.addAttribute("keyword", keyword);
-		return "product-list";
-		
+        if (name != null && !name.isEmpty()) {
+            products = productRepository.findByNameContaining(name);
+        } else if (minPrice != null && maxPrice != null) {
+            products = productRepository.findByPriceBetween(minPrice, maxPrice);
+        } else if (minQuantity != null) {
+            products = productRepository.findByQuantityGreaterThanEqual(minQuantity);
+        } else {
+            products = productRepository.findAll(); // 全件取得
+        }
+        
+        model.addAttribute("products", listProducts(null));
+        return "product-list";
 	}
+	
+		
 }
+	

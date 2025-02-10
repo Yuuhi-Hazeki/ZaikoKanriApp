@@ -9,7 +9,7 @@ import com.example.demo.model.Product;
 @Repository
 public interface ProductRepository extends JpaRepository<Product, Integer> {
 	//商品名の部分一致検索
-	List<Product> findByNameContainingIgnoreCase(String name);
+	List<Product> findByNameContaining(String name);
 	
 	//価格範囲で検索
 	List<Product>findByPriceBetween(double minPrice, double maxPrice);
