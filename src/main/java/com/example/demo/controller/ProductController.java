@@ -42,7 +42,7 @@ public class ProductController {
 	}
 	
 	@GetMapping("/edit/{id}")
-	public String showEditForm(@PathVariable Integer id, Model model) {
+	public String showEditForm(@PathVariable Long id, Model model) {
 	    Optional<Product> product = productRepository.findById(id);
 	    if (product != null) {
 	        model.addAttribute("product", product.get());
@@ -59,13 +59,13 @@ public class ProductController {
 	}
 	
 	@PostMapping("/delete/{id}")
-	public String deleteProduct(@PathVariable Integer id) {
+	public String deleteProduct(@PathVariable Long id) {
 		productService.deleteProduct(id);
 		return "redirect:/";
 	}
 	
 	@PostMapping("/update/{id}")
-	public String pudateProduct(@PathVariable Integer id, @ModelAttribute Product product) {
+	public String pudateProduct(@PathVariable Long id, @ModelAttribute Product product) {
 		Optional<Product> existingProduct = productRepository.findById(id);
 		if(existingProduct.isPresent()) {
 		Product updatedProduct = existingProduct.get();
@@ -96,7 +96,7 @@ public class ProductController {
             products = productRepository.findAll(); // 全件取得
         }
         
-        model.addAttribute("products", listProducts(null));
+        model.addAttribute("products", products);
         return "product-list";
 	}
 	

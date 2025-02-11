@@ -13,6 +13,7 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor // 必須フィールドのコンストラクタを自動生成
 
 public class ProductService {
+	
 	private final ProductRepository productRepository;
 
 	public List<Product> getAllProducts() {
@@ -23,7 +24,7 @@ public class ProductService {
 		return productRepository.save(product);
 	}
 
-	public void deleteProduct(Integer id) {
+	public void deleteProduct(Long id) {
 		productRepository.deleteById(id);
 	}
 }
