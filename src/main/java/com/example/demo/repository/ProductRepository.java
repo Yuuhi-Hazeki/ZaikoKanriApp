@@ -20,6 +20,6 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
 	List<Product>findByQuantityGreaterThanEqual(int minQuantity);
 	
 	//価格順で並べる
-	List<Product> findByNameVontainingOrderByPriceAsc(String name);
+	List<Product> findByNameContainingOrderByPriceAsc(String name);
 
 }
